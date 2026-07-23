@@ -16,26 +16,26 @@ namespace Orpita.Inventory
         private ReactiveProperty<KeyDefinition> _currentKey;
         private ReactiveProperty<int> _mapFragments;
 
-        private void Awake()
-        {
-            _currentKey = new ReactiveProperty<KeyDefinition>(null);
-            _mapFragments = new ReactiveProperty<int>(0);
-        }
+        // Created lazily rather than in Awake: a view on another GameObject (the UI
+        // canvas) can subscribe from its OnEnable before this component's Awake runs,
+        // and cross-GameObject Awake/OnEnable order is undefined.
+        private ReactiveProperty<KeyDefinition> KeyProp => _currentKey ??= new ReactiveProperty<KeyDefinition>(null);
+        private ReactiveProperty<int> FragmentsProp => _mapFragments ??= new ReactiveProperty<int>(0);
 
         /// <summary>The currently held key, or null. Read-only reactive view.</summary>
-        public ReadOnlyReactiveProperty<KeyDefinition> CurrentKeyRx => _currentKey;
+        public ReadOnlyReactiveProperty<KeyDefinition> CurrentKeyRx => KeyProp;
 
         /// <summary>Total Map Fragments collected. Read-only reactive view.</summary>
-        public ReadOnlyReactiveProperty<int> MapFragmentsRx => _mapFragments;
+        public ReadOnlyReactiveProperty<int> MapFragmentsRx => FragmentsProp;
 
         /// <summary>True while a key is currently held.</summary>
-        public bool HasKey => _currentKey.Value != null;
+        public bool HasKey => KeyProp.Value != null;
 
         /// <summary>The currently held key, or null.</summary>
-        public KeyDefinition CurrentKey => _currentKey.Value;
+        public KeyDefinition CurrentKey => KeyProp.Value;
 
         /// <summary>Total Map Fragments collected.</summary>
-        public int MapFragments => _mapFragments.Value;
+        public int MapFragments => FragmentsProp.Value;
 
         /// <summary>Raised when a key is successfully picked up.</summary>
         public event Action<KeyDefinition> KeyPickedUp;
@@ -61,7 +61,7 @@ namespace Orpita.Inventory
                 return false;
             }
 
-            _currentKey.Value = key;
+            KeyProp.Value = key;
             KeyPickedUp?.Invoke(key);
             return true;
         }
@@ -69,7 +69,7 @@ namespace Orpita.Inventory
         /// <summary>True iff the player currently holds the specific required key.</summary>
         public bool HasMatchingKey(KeyDefinition required)
         {
-            return required != null && _currentKey.Value == required;
+            return required != null && KeyProp.Value == required;
         }
 
         /// <summary>
@@ -77,19 +77,19 @@ namespace Orpita.Inventory
         /// </summary>
         public void ConsumeKey()
         {
-            KeyDefinition previous = _currentKey.Value;
+            KeyDefinition previous = KeyProp.Value;
             if (previous == null)
                 return;
 
-            _currentKey.Value = null;
+            KeyProp.Value = null;
             KeyConsumed?.Invoke(previous);
         }
 
         /// <summary>Grant one Map Fragment; raises <see cref="MapFragmentAdded"/> with the new total.</summary>
         public void AddMapFragment()
         {
-            int next = _mapFragments.Value + 1;
-            _mapFragments.Value = next;
+            int next = FragmentsProp.Value + 1;
+            FragmentsProp.Value = next;
             MapFragmentAdded?.Invoke(next);
         }
 

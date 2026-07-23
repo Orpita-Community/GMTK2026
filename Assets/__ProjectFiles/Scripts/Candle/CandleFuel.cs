@@ -20,26 +20,26 @@ namespace Orpita.Candle
 
         private ReactiveProperty<float> _seconds;
 
+        // Created lazily rather than in Awake: a UI view on another GameObject can
+        // subscribe from its OnEnable before this component's Awake would have run,
+        // and cross-GameObject Awake/OnEnable order is undefined.
+        private ReactiveProperty<float> Fuel => _seconds ??= new ReactiveProperty<float>(maxSeconds);
+
         /// <summary>Remaining fuel as a reactive stream (clamped to [0, <see cref="MaxSeconds"/>]).</summary>
-        public ReadOnlyReactiveProperty<float> SecondsRemainingRx => _seconds;
+        public ReadOnlyReactiveProperty<float> SecondsRemainingRx => Fuel;
 
         /// <inheritdoc/>
-        public float SecondsRemaining => _seconds.Value;
+        public float SecondsRemaining => Fuel.Value;
 
         /// <inheritdoc/>
         public float MaxSeconds => maxSeconds;
-
-        private void Awake()
-        {
-            _seconds = new ReactiveProperty<float>(maxSeconds);
-        }
 
         private void Update()
         {
             if (!drainOverTime)
                 return;
 
-            float value = _seconds.Value;
+            float value = Fuel.Value;
             if (value <= 0f)
                 return;
 
@@ -47,19 +47,19 @@ namespace Orpita.Candle
             value -= Time.deltaTime;
             if (value < 0f)
                 value = 0f;
-            _seconds.Value = value;
+            Fuel.Value = value;
         }
 
         /// <inheritdoc/>
         public void Refill()
         {
-            _seconds.Value = maxSeconds;
+            Fuel.Value = maxSeconds;
         }
 
         /// <inheritdoc/>
         public void AddSeconds(float seconds)
         {
-            _seconds.Value = Mathf.Clamp(_seconds.Value + seconds, 0f, maxSeconds);
+            Fuel.Value = Mathf.Clamp(Fuel.Value + seconds, 0f, maxSeconds);
         }
 
         private void OnDestroy()
