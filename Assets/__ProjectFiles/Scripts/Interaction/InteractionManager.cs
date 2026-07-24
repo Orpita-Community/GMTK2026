@@ -185,6 +185,7 @@ namespace Orpita.Interaction
 
             if (IsMoving || IsInvulnerable || !target.CanInteract(_context))
             {
+                Debug.Log(target.CanInteract(_context));
                 InteractionBlocked?.Invoke(target);
                 return;
             }
