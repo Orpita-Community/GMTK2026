@@ -55,7 +55,7 @@ namespace Orpita.UI
 
         private void OnTargetChanged(IInteractable target)
         {
-            if (target == null || string.IsNullOrEmpty(target.Prompt))
+            if (target == null)
             {
                 FadeTo(0f);
                 return;
