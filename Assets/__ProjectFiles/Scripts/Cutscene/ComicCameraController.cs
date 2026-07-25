@@ -22,20 +22,13 @@ namespace Orpaits.Cinematics
         [Header("Camera Feel")]
         [SerializeField] private float defaultSmoothTime = 0.3f;
         
-        [Header("Final Transition (The Dive)")]
-        [SerializeField] [Tooltip("How tight the camera zooms in on the final button press")] 
-        private float finalZoomSize = 1.5f;
-        [SerializeField] [Tooltip("How smooth/slow the final zoom is")] 
-        private float finalZoomSmoothTime = 2.5f;
-        [Header("Transition Timings")]
-        [SerializeField] [Tooltip("How long it takes to reach maximum pixelation")] 
-        private float pixelationDuration = 2f;
-        [SerializeField] [Tooltip("Draw a curve that shoots up fast, then levels off, to fix the visual pacing!")]
-        private AnimationCurve pixelationCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-        [SerializeField] [Tooltip("How long the screen stays fully pixelated while the black screen fades in")] 
-        private float blackFadeDuration = 1f;
+        [Header("Transitions")]
+        [SerializeField] [Tooltip("How long it takes to fade in from black when the scene starts")] 
+        private float startFadeDuration = 2.0f;
+        
+        [SerializeField] [Tooltip("How long to hold the completely black screen at the end before loading the game")] 
+        private float finalBlackHoldDuration = 1.5f;
 
-        [SerializeField] private Material transitionMaterial;
         [SerializeField] [Tooltip("The Canvas Group on the Black Screen UI image")]
         private CanvasGroup fadeOverlay;
 
@@ -67,9 +60,8 @@ namespace Orpaits.Cinematics
             targetZoom = cam.orthographicSize;
             currentSmoothTime = defaultSmoothTime;
 
-            // Reset effects on awake
-            if (transitionMaterial != null) transitionMaterial.SetFloat("_Progress", 0f);
-            if (fadeOverlay != null) fadeOverlay.alpha = 0f;
+            // Start completely black
+            if (fadeOverlay != null) fadeOverlay.alpha = 1f;
         }
 
         private void OnEnable()
@@ -88,11 +80,9 @@ namespace Orpaits.Cinematics
                 advanceAction.action.performed -= HandleAdvance;
                 advanceAction.action.Disable();
             }
-            
-            if (transitionMaterial != null) transitionMaterial.SetFloat("_Progress", 0f);
         }
 
-        private void Start()
+        private async void Start()
         {
             if (bgmSource != null && bgmSource.clip != null)
             {
@@ -101,6 +91,9 @@ namespace Orpaits.Cinematics
             }
             
             ShowNextPanel();
+            
+            // Kick off the fade-in effect right as the scene starts
+            await FadeInStartAsync();
         }
 
         private void LateUpdate()
@@ -150,71 +143,39 @@ namespace Orpaits.Cinematics
             }
         }
 
+        private async Awaitable FadeInStartAsync()
+        {
+            if (fadeOverlay == null) return;
+
+            float timer = 0f;
+            while (timer < startFadeDuration)
+            {
+                timer += Time.deltaTime;
+                
+                // Smoothly fade from 1 (black) to 0 (clear)
+                fadeOverlay.alpha = 1f - (timer / startFadeDuration);
+                
+                await Awaitable.NextFrameAsync();
+            }
+            
+            // Ensure it is completely clear at the end
+            fadeOverlay.alpha = 0f; 
+        }
+
         private async Awaitable PlayFinalTransitionAsync()
         {
             isTransitioning = true;
             
-            // Kick off the slow zoom
-            currentSmoothTime = finalZoomSmoothTime;
-            targetZoom = finalZoomSize;
-
-            float startVolume = bgmSource != null ? bgmSource.volume : 0f;
-
-            // ==========================================
-            // PHASE 1: Crunch the Pixels
-            // ==========================================
-            float timer = 0f;
-            while (timer < pixelationDuration)
-            {
-                timer += Time.deltaTime;
-                float normalizedTime = Mathf.Clamp01(timer / pixelationDuration);
-                
-                if (transitionMaterial != null)
-                {
-                    // Evaluate the curve so the pixels crunch exactly how you draw them in the Inspector
-                    float curvedProgress = pixelationCurve.Evaluate(normalizedTime);
-                    transitionMaterial.SetFloat("_Progress", curvedProgress);
-                }
-
-                // Fade the music halfway down during the pixelation
-                if (bgmSource != null)
-                {
-                    bgmSource.volume = Mathf.Lerp(startVolume, startVolume * 0.4f, normalizedTime);
-                }
-
-                await Awaitable.NextFrameAsync();
-            }
-
-            // Ensure it locks to 100% pixelated at the end of phase 1
-            if (transitionMaterial != null) transitionMaterial.SetFloat("_Progress", 1f);
-
-            // ==========================================
-            // PHASE 2: Hold Pixelation and Fade to Black
-            // ==========================================
-            timer = 0f;
-            while (timer < blackFadeDuration)
-            {
-                timer += Time.deltaTime;
-                float normalizedTime = Mathf.Clamp01(timer / blackFadeDuration);
-                
-                if (fadeOverlay != null)
-                {
-                    fadeOverlay.alpha = normalizedTime;
-                }
-
-                // Fade the music the rest of the way to zero
-                if (bgmSource != null)
-                {
-                    bgmSource.volume = Mathf.Lerp(startVolume * 0.4f, 0f, normalizedTime);
-                }
-
-                await Awaitable.NextFrameAsync();
-            }
-
-            // Safety lock before loading
+            // 1. INSTANT BLACKOUT - Just like the power went out
             if (fadeOverlay != null) fadeOverlay.alpha = 1f;
-            if (bgmSource != null) bgmSource.volume = 0f;
+            
+            // 2. Cut the music instantly to sell the effect
+            if (bgmSource != null) bgmSource.Stop();
 
+            // 3. Hold in the darkness for a moment to let the player process the scare
+            await Awaitable.WaitForSecondsAsync(finalBlackHoldDuration);
+
+            // 4. Load the game
             SceneManager.LoadScene(nextSceneName);
         }
     }
