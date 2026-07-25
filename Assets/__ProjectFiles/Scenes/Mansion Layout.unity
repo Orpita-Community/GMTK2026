@@ -1201,6 +1201,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &221755335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221755336}
+  m_Layer: 0
+  m_Name: Near Death Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &221755336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221755335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245171231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6147,6 +6178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854d0eb242a456e4d85fc13870fb6d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Items.DiamondPickup
+  lockdownManager: {fileID: 1215648388}
   progressionManager: {fileID: 1215648385}
 --- !u!60 &1160824665
 PolygonCollider2D:
@@ -6432,6 +6464,143 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &1178409536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178409537}
+  - component: {fileID: 1178409539}
+  - component: {fileID: 1178409538}
+  m_Layer: 0
+  m_Name: HealthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1178409537
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178409536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1589746067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -14}
+  m_SizeDelta: {x: 400, y: 28}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1178409538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178409536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: HP
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1178409539
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178409536}
+  m_CullTransparentMesh: 1
 --- !u!1 &1215648384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,6 +6612,7 @@ GameObject:
   - component: {fileID: 1215648386}
   - component: {fileID: 1215648385}
   - component: {fileID: 1215648387}
+  - component: {fileID: 1215648388}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6462,9 +6632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49903ef3e19305b4c97f275c2606eb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Core.ProgressionManager
-  inventory: {fileID: 0}
+  inventory: {fileID: 1408301496}
+  lockdownManager: {fileID: 1215648388}
   diamondObject: {fileID: 1160824663}
-  exitDoorObject: {fileID: 1950626502}
   fragmentsToTriggerDiamond: 3
 --- !u!4 &1215648386
 Transform:
@@ -6494,6 +6664,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.DebugTools.DebugEndgame
   inventory: {fileID: 0}
+--- !u!114 &1215648388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215648384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165786d1b3733b846af04b67b5382bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Core.LockdownManager
+  exitDoorObject: {fileID: 1950626502}
 --- !u!1 &1250513455
 GameObject:
   m_ObjectHideFlags: 0
@@ -7040,6 +7223,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d846b7d2a66a4a962684e16a0bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Candle.CandleFuel
+--- !u!114 &1408301501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4014848946958729425, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379cffb1a6db3b94aa27366c22009109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Player.PlayerMotor
+--- !u!114 &1408301503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1935859018147809359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea094312b11f9b4cb5acfe4eaf303e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Player.PlayerInputReader
+--- !u!212 &1408301505 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7218484786398300504, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1408301506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f7b1c92a50c64ea7737053996e137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Player.InvulnerabilityFlicker
+  sprite: {fileID: 1408301505}
+  health: {fileID: 1408301508}
+  blinkInterval: 0.12
+--- !u!114 &1408301507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c00599b8505529448f30c3ea0d5bb20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Player.PlayerDeathHandler
+  health: {fileID: 1408301508}
+  motor: {fileID: 1408301501}
+  inputReader: {fileID: 1408301503}
+--- !u!114 &1408301508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb67c0e9ddc01404497dc0bdd599555c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Player.PlayerHealth
+  maxHealth: 3
+  invulnerabilitySeconds: 1.5
 --- !u!1 &1415665794
 GameObject:
   m_ObjectHideFlags: 0
@@ -8055,6 +8309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1589746067}
   - component: {fileID: 1589746068}
+  - component: {fileID: 1589746069}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -8078,6 +8333,7 @@ RectTransform:
   - {fileID: 1392983817}
   - {fileID: 2055811185}
   - {fileID: 764399513}
+  - {fileID: 1178409537}
   m_Father: {fileID: 122795094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8103,6 +8359,20 @@ MonoBehaviour:
   candleText: {fileID: 1392983818}
   keyText: {fileID: 2055811186}
   fragmentsText: {fileID: 764399514}
+--- !u!114 &1589746069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589746066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6bb95844d50134c9f6e68da4884edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.UI.PlayerHealthView
+  health: {fileID: 1408301508}
+  text: {fileID: 1178409538}
 --- !u!1 &1608112099
 GameObject:
   m_ObjectHideFlags: 0
@@ -13690,7 +13960,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1979297356887093734, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: lockdown
+      value: 
+      objectReference: {fileID: 1215648388}
     - target: {fileID: 3889267780018030972, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: candle
+      value: 
+      objectReference: {fileID: 1408301498}
+    - target: {fileID: 4894318718371871589, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1408301508}
+    - target: {fileID: 8458128299011737391, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
       propertyPath: candle
       value: 
       objectReference: {fileID: 1408301498}
@@ -14743,6 +15025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4184184122571234197, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 5.48
+      objectReference: {fileID: 0}
     - target: {fileID: 4413889548279726932, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.290001
@@ -14783,6 +15069,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5240745360104975618, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      propertyPath: fullOuterRadius
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240745360104975618, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      propertyPath: emptyOuterRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6134450666978969558, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
       propertyPath: m_Constraints
       value: 2
@@ -14821,6 +15115,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1408301492}
+    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1408301508}
+    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1408301507}
+    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1408301506}
   m_SourcePrefab: {fileID: 100100000, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
 --- !u!1001 &3500377079787376800
 PrefabInstance:
@@ -15184,3 +15487,4 @@ SceneRoots:
   - {fileID: 1215648386}
   - {fileID: 608251927}
   - {fileID: 1937294991}
+  - {fileID: 221755336}

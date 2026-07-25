@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Candle.CandleLightView
   candle: {fileID: 2944711658039600972}
-  fullOuterRadius: 3.4
-  emptyOuterRadius: 0.9
-  innerRadiusRatio: 0.35
+  fullOuterRadius: 15
+  emptyOuterRadius: 3
+  innerRadiusRatio: 0.3
   fullIntensity: 1.15
   emptyIntensity: 0.12
   flameColor: {r: 1, g: 0.82, b: 0.55, a: 1}
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Candle.CandleFuel
   maxSeconds: 15
   drainOverTime: 1
+  burnRatePerSecond: 1
 --- !u!114 &92642509831169200
 MonoBehaviour:
   m_ObjectHideFlags: 0
