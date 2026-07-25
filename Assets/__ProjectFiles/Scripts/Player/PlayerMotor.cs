@@ -3,13 +3,6 @@ using UnityEngine;
 
 namespace Orpita.Player
 {
-    /// <summary>
-    /// Physics-based top-down movement. Consumes an <see cref="IMovementInput"/>
-    /// and drives a Rigidbody2D so collision against walls, furniture and doors
-    /// is resolved by the physics engine. Movement is frame-rate independent
-    /// (velocity is applied through the fixed-step physics loop) and diagonal
-    /// speed is normalized so it never exceeds cardinal speed.
-    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class PlayerMotor : MonoBehaviour
     {
@@ -21,15 +14,9 @@ namespace Orpita.Player
 
         private Rigidbody2D _body;
         private IMovementInput _input;
-        private Vector2 _facing = Vector2.down;
+        private Vector2 _facing = Vector2.right; // Defaulting to right for side-scroller
 
-        /// <summary>
-        /// Last non-zero movement direction (normalized). Intended for driving
-        /// animation/aiming; updated only while the player is actually moving.
-        /// </summary>
         public Vector2 Facing => _facing;
-
-        /// <summary>Raised when the facing direction changes to a new octant.</summary>
         public event Action<Vector2> FacingChanged;
 
         private void Awake()
@@ -47,28 +34,31 @@ namespace Orpita.Player
 
         private void FixedUpdate()
         {
-            Vector2 direction = Vector2.ClampMagnitude(_input.MoveDirection, 1f);
-            _body.linearVelocity = direction * moveSpeed;
-            UpdateFacing(direction);
+            // 1. Only grab the horizontal (X) input (A/D or Left/Right arrows)
+            float horizontalInput = _input.MoveDirection.x;
+            
+            // 2. Apply horizontal movement, but keep the current Y velocity so gravity still works if added later
+            _body.linearVelocity = new Vector2(horizontalInput * moveSpeed, _body.linearVelocity.y);
+            
+            UpdateFacing(horizontalInput);
         }
 
-        private void UpdateFacing(Vector2 direction)
+        private void UpdateFacing(float horizontalInput)
         {
-            if (direction.sqrMagnitude < 0.0001f)
+            if (Mathf.Abs(horizontalInput) < 0.0001f)
                 return;
 
-            Vector2 next = direction.normalized;
-            if (Vector2.Dot(next, _facing) > 0.9999f)
-                return;
-
-            _facing = next;
-            FacingChanged?.Invoke(_facing);
+            Vector2 next = horizontalInput > 0 ? Vector2.right : Vector2.left;
+            
+            if (Vector2.Dot(next, _facing) < 0.9999f)
+            {
+                _facing = next;
+                FacingChanged?.Invoke(_facing);
+            }
         }
 
         private void ConfigureBody()
         {
-            // Top-down: no gravity, physics-driven movement, and the body must
-            // not tumble from collision torque.
             _body.gravityScale = 0f;
             _body.freezeRotation = true;
             _body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
