@@ -2198,7 +2198,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.082698405, g: 0.25005284, b: 0.381132, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2812,7 +2812,7 @@ MonoBehaviour:
     rid: 8345242132967325697
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.001
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -3945,111 +3945,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!1 &877920829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 877920831}
-  - component: {fileID: 877920830}
-  m_Layer: 0
-  m_Name: Spot Light 2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &877920830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877920829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
-  m_ComponentVersion: 4
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_Light2DProvider:
-    rid: -2
-  m_SelectionSources:
-    rid: 8345242132967325696
-  m_FalloffIntensity: 0.349
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0.3
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 6.7732043
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 8345242132967325696
-      type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
-      data:
-        m_SelectedHashCode: 3
-        m_SelectedSource:
-          rid: -2
-        m_Provider2DCache:
-          rid: 8345242132967325698
-    - rid: 8345242132967325698
-      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
-      data:
-        m_Cache: []
---- !u!4 &877920831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877920829}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.2587188, w: 0.9659527}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1408301486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888257043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,7 +6462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49903ef3e19305b4c97f275c2606eb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Core.ProgressionManager
-  inventory: {fileID: 1408301476}
+  inventory: {fileID: 0}
   diamondObject: {fileID: 1160824663}
   exitDoorObject: {fileID: 1950626502}
   fragmentsToTriggerDiamond: 3
@@ -6598,56 +6493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de472ba685022324095dafa9debb6d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.DebugTools.DebugEndgame
-  inventory: {fileID: 1408301476}
---- !u!1 &1228950942
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1228950944}
-  - component: {fileID: 1228950943}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1228950943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228950942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
---- !u!4 &1228950944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228950942}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  inventory: {fileID: 0}
 --- !u!1 &1250513455
 GameObject:
   m_ObjectHideFlags: 0
@@ -7121,109 +6967,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
   m_PrefabInstance: {fileID: 542722884125800251}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1408301475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c12d61049baae4685aea351979f0b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Interaction.InteractionManager
-  moveThreshold: 0.05
-  cooldownSeconds: 0.35
---- !u!114 &1408301476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3b701bff50bc24b8cd696caa5b6180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Inventory.PlayerInventory
---- !u!114 &1408301477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a1d846b7d2a66a4a962684e16a0bec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Candle.CandleFuel
-  maxSeconds: 15
-  drainOverTime: 1
---- !u!114 &1408301478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e0fb736e0cd854da9f110e84f3a06f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Interaction.InteractionDetector
-  range: 1.6
-  triggerCollider: {fileID: 1408301479}
---- !u!58 &1408301479
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.6
---- !u!114 &1408301480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408301468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7b3cfcf0ed1f64aa4a4f1cf9eb91df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Interaction.InteractionDebugLogger
-  enableLogging: 1
 --- !u!4 &1408301486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4413889548279726932, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
@@ -7264,6 +7007,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Visuals.PlayerAnimator
   terrifiedThreshold: 5
+--- !u!114 &1408301495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8409211868457947390, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c12d61049baae4685aea351979f0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Interaction.InteractionManager
+--- !u!114 &1408301496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 92642509831169200, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3b701bff50bc24b8cd696caa5b6180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Inventory.PlayerInventory
+--- !u!114 &1408301498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2944711658039600972, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
+  m_PrefabInstance: {fileID: 542722884125800251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408301468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1d846b7d2a66a4a962684e16a0bec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Orpita.Candle.CandleFuel
 --- !u!1 &1415665794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,8 +7092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78608377fa65c64d97eae912b40c490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.UI.ChestFeedbackView
-  manager: {fileID: 1408301475}
-  inventory: {fileID: 1408301476}
+  manager: {fileID: 1408301495}
+  inventory: {fileID: 1408301496}
   feedbackLabel: {fileID: 1415665799}
   feedbackGroup: {fileID: 1415665798}
   displaySeconds: 2
@@ -7334,7 +7110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaf53c2b6c8b6343bf8a3d2a17f10c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.UI.KeyPickupFeedbackView
-  inventory: {fileID: 1408301476}
+  inventory: {fileID: 1408301496}
   feedbackLabel: {fileID: 1415665799}
   feedbackGroup: {fileID: 1415665798}
   displaySeconds: 2
@@ -8172,7 +7948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd238e1ea82ca454387318832cc91bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.UI.InteractionPromptView
-  manager: {fileID: 1408301475}
+  manager: {fileID: 1408301495}
   promptGroup: {fileID: 1566972558}
   promptLabel: {fileID: 1461700384}
   channelRoot: {fileID: 571386850}
@@ -8321,8 +8097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d2c40d6da551c4883c6ceeaa3be4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.UI.PlayerHudView
-  inventory: {fileID: 1408301476}
-  candle: {fileID: 1408301477}
+  inventory: {fileID: 1408301496}
+  candle: {fileID: 1408301498}
   candleFill: {fileID: 1046005155}
   candleText: {fileID: 1392983818}
   keyText: {fileID: 2055811186}
@@ -13866,6 +13642,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1001 &1937294991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.15594
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497493016529572107, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889267780018030972, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: candle
+      value: 
+      objectReference: {fileID: 1408301498}
+    - target: {fileID: 9010495378513587243, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
+      propertyPath: m_Name
+      value: Global Volume (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3ba7938e6cb7a8418b853c639e36817, type: 3}
 --- !u!1 &1944108518
 GameObject:
   m_ObjectHideFlags: 0
@@ -14976,29 +14813,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4413889548279726932, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 877920831}
+    m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301479}
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301478}
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301477}
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301476}
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301475}
-    - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408301480}
     - targetCorrespondingSourceObject: {fileID: 6739170922077569359, guid: dc636b03e55e0bf429757e15fb000456, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1408301493}
@@ -15357,7 +15173,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 619394802}
-  - {fileID: 1228950944}
   - {fileID: 519420032}
   - {fileID: 542722884125800251}
   - {fileID: 633295980}
@@ -15368,3 +15183,4 @@ SceneRoots:
   - {fileID: 980018188}
   - {fileID: 1215648386}
   - {fileID: 608251927}
+  - {fileID: 1937294991}
