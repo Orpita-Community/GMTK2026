@@ -128,17 +128,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.81}
+  m_Offset: {x: 0, y: -1.6880236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.825, y: 4.95}
+    oldSize: {x: 4.992857, y: 4.242857}
     newSize: {x: 6.99, y: 5.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.279801, y: 0.9271326}
+  m_Size: {x: 1.9906088, y: 0.7994213}
   m_EdgeRadius: 0
 --- !u!114 &7765980424181120772
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
   highlightScale: 1.12
   highlightSeconds: 0.15
   lootTable: {fileID: 11400000, guid: 2d65aaccaf6f38c4f9a9b7fd1f1f4117, type: 2}
-  singleUse: 1
+  maxInteractions: 1
   keyPickupPrefab: {fileID: 1058337268748243741, guid: 852eac94bc39b8742844c1ef0f2377a8, type: 3}
   waxPickupPrefab: {fileID: 861296981882966668, guid: c3c01b3bbdec6db449b9646cb923230a, type: 3}
   spawnOffset: {x: -0.02, y: 0.5, z: 0}

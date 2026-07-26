@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 88dd4576885ee17428057738eb91912d
+guid: 328807e94bc70b7449477da8efd03f61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7977106936481485913
-    second: dinning-room(av)(1)_0
+      213: -2228689943877444655
+    second: GMTK Logo 2026 Version_0
+  - first:
+      213: 7734122194533148279
+    second: GMTK Logo 2026 Version_1
+  - first:
+      213: 3293336392552502365
+    second: GMTK Logo 2026 Version_2
+  - first:
+      213: -8289947995111698424
+    second: GMTK Logo 2026 Version_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 140
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,23 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dining Open_0
+      name: GMTK Logo 2026 Version_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 53
-        width: 699
-        height: 593
+        x: 58
+        y: 617
+        width: 237
+        height: 333
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 233effb77369b55438a9c5e896edc0ba
-      internalID: 249450939
+      spriteID: 1db13bcdd4a1211e0800000000000000
+      internalID: -2228689943877444655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK Logo 2026 Version_1
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 620
+        width: 289
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776ec96a82f155b60800000000000000
+      internalID: 7734122194533148279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK Logo 2026 Version_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 366
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5455fb000844bd20800000000000000
+      internalID: 3293336392552502365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK Logo 2026 Version_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 366
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800d7e0783034fc80800000000000000
+      internalID: -8289947995111698424
       vertices: []
       indices: 
       edges: []
@@ -159,11 +234,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Dining Open_0: 249450939
+      GMTK Logo 2026 Version_0: -2228689943877444655
+      GMTK Logo 2026 Version_1: 7734122194533148279
+      GMTK Logo 2026 Version_2: 3293336392552502365
+      GMTK Logo 2026 Version_3: -8289947995111698424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
