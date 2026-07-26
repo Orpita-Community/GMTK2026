@@ -394,7 +394,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2316789503995926338, guid: be7d0f8b0fe01354cb2a726440d4a6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -486,7 +486,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5790913891603507922, guid: be7d0f8b0fe01354cb2a726440d4a6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -613,7 +613,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5790913891603507922, guid: be7d0f8b0fe01354cb2a726440d4a6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -810,7 +810,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2316789503995926338, guid: be7d0f8b0fe01354cb2a726440d4a6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -981,7 +981,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Interaction.CandleRefillStation
   interactionDuration: 1
-  prompt: Refill
+  prompt: Refill Your Lantern
   highlightTarget: {fileID: 2873412493509737327}
   highlightScale: 1.12
   highlightSeconds: 0.15
+  cooldownDuration: 5
+  stationLight: {fileID: 5296619369370824031}

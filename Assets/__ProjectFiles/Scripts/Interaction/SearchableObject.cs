@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Orpita.Items;
+using Orpita.Audio;
+
 
 namespace Orpita.Interaction
 {
@@ -39,6 +41,7 @@ namespace Orpita.Interaction
         public override void OnInteract(InteractionContext ctx)
         {
             LootReward reward = lootTable != null ? lootTable.Roll() : LootReward.Nothing;
+            AudioManager.Instance.PlaySFX("DrawerOpen");
 
             switch (reward.Kind)
             {

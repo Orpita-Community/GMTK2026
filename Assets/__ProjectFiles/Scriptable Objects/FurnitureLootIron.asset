@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Items.LootTable
   entries:
   - kind: 1
-    weight: 20
+    weight: 30
     key: {fileID: 11400000, guid: 046dc46784e1897429559d93cc8ef77c, type: 2}
     candleSeconds: 0
+  - kind: 2
+    weight: 50
+    key: {fileID: 0}
+    candleSeconds: 5

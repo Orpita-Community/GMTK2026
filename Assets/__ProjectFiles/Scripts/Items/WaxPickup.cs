@@ -1,5 +1,7 @@
 using UnityEngine;
 using Orpita.Candle;
+using Orpita.Audio;
+
 
 namespace Orpita.Items
 {
@@ -20,6 +22,7 @@ namespace Orpita.Items
             ICandle candle = other.GetComponentInParent<ICandle>();
             if (candle != null)
             {
+                AudioManager.Instance.PlaySFX("CandlePickup");
                 candle.AddSeconds(fuelAmount);
                 Destroy(gameObject);
             }
