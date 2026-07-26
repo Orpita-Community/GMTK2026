@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 667a7f84cae998e4fa33d1879541e028
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8707458871994007879
+    second: Orpita-IconO-Black-Transparent_0
+  - first:
+      213: -8471891955144287171
+    second: Orpita-IconO-Black-Transparent_1
+  - first:
+      213: 7397006376366025396
+    second: Orpita-IconO-Black-Transparent_2
+  - first:
+      213: -5108074548178585890
+    second: Orpita-IconO-Black-Transparent_3
+  - first:
+      213: -7565388862430805028
+    second: Orpita-IconO-Black-Transparent_4
+  - first:
+      213: 1904970399810770922
+    second: Orpita-IconO-Black-Transparent_5
+  - first:
+      213: -704286345371430822
+    second: Orpita-IconO-Black-Transparent_6
+  - first:
+      213: -2368897582487550003
+    second: Orpita-IconO-Black-Transparent_7
+  - first:
+      213: -3563303819299548423
+    second: Orpita-IconO-Black-Transparent_8
+  - first:
+      213: 1968953444946735937
+    second: Orpita-IconO-Black-Transparent_9
+  - first:
+      213: 6695074771411252851
+    second: Orpita-IconO-Black-Transparent_10
+  - first:
+      213: -7144210913034968627
+    second: Orpita-IconO-Black-Transparent_11
+  - first:
+      213: -2128960603415514873
+    second: Orpita-IconO-Black-Transparent_12
+  - first:
+      213: 6128654145621988360
+    second: Orpita-IconO-Black-Transparent_13
+  - first:
+      213: 2003605442380021202
+    second: Orpita-IconO-Black-Transparent_14
+  - first:
+      213: -1805674946135458807
+    second: Orpita-IconO-Black-Transparent_15
+  - first:
+      213: -2175237861965127603
+    second: Orpita-IconO-Black-Transparent_16
+  - first:
+      213: -7398695664140383483
+    second: Orpita-IconO-Black-Transparent_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 428
+        width: 411
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be397e3a44e82780800000000000000
+      internalID: -8707458871994007879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_1
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 707
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c922e172bcd6a80800000000000000
+      internalID: -8471891955144287171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_2
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 535
+        width: 104
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4baa898bb1277a660800000000000000
+      internalID: 7397006376366025396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 535
+        width: 131
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6f99d13497c19b0800000000000000
+      internalID: -5108074548178585890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 472
+        width: 165
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd38d1ba9e6520790800000000000000
+      internalID: -7565388862430805028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_5
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 535
+        width: 43
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7da545c70df6a10800000000000000
+      internalID: 1904970399810770922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_6
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 535
+        width: 165
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a505af3ec4fd936f0800000000000000
+      internalID: -704286345371430822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_7
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 485
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc74c8e133cff1fd0800000000000000
+      internalID: -2368897582487550003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_8
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 485
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f29bd73e0a9c8ec0800000000000000
+      internalID: -3563303819299548423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_9
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 485
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143f459e9b0235b10800000000000000
+      internalID: 1968953444946735937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_10
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 485
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376b5a6580fa9ec50800000000000000
+      internalID: 6695074771411252851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_11
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 485
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1e418b60aaadc90800000000000000
+      internalID: -7144210913034968627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_12
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 485
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701fd946c996472e0800000000000000
+      internalID: -2128960603415514873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_13
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 485
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8041605797a5d0550800000000000000
+      internalID: 6128654145621988360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_14
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 485
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ddb917c88c3ecb10800000000000000
+      internalID: 2003605442380021202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_15
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 485
+        width: 11
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90cf5cf0434f0f6e0800000000000000
+      internalID: -1805674946135458807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_16
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 485
+        width: 23
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40a69f70b000d1e0800000000000000
+      internalID: -2175237861965127603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orpita-IconO-Black-Transparent_17
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 474
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b80b15e7d825990800000000000000
+      internalID: -7398695664140383483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Orpita-IconO-Black-Transparent_0: -8707458871994007879
+      Orpita-IconO-Black-Transparent_1: -8471891955144287171
+      Orpita-IconO-Black-Transparent_10: 6695074771411252851
+      Orpita-IconO-Black-Transparent_11: -7144210913034968627
+      Orpita-IconO-Black-Transparent_12: -2128960603415514873
+      Orpita-IconO-Black-Transparent_13: 6128654145621988360
+      Orpita-IconO-Black-Transparent_14: 2003605442380021202
+      Orpita-IconO-Black-Transparent_15: -1805674946135458807
+      Orpita-IconO-Black-Transparent_16: -2175237861965127603
+      Orpita-IconO-Black-Transparent_17: -7398695664140383483
+      Orpita-IconO-Black-Transparent_2: 7397006376366025396
+      Orpita-IconO-Black-Transparent_3: -5108074548178585890
+      Orpita-IconO-Black-Transparent_4: -7565388862430805028
+      Orpita-IconO-Black-Transparent_5: 1904970399810770922
+      Orpita-IconO-Black-Transparent_6: -704286345371430822
+      Orpita-IconO-Black-Transparent_7: -2368897582487550003
+      Orpita-IconO-Black-Transparent_8: -3563303819299548423
+      Orpita-IconO-Black-Transparent_9: 1968953444946735937
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
