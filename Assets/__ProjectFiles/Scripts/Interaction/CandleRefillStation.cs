@@ -12,6 +12,9 @@ namespace Orpita.Interaction
         /// <summary>Raised when a refill completes.</summary>
         public event Action Refilled;
 
+        // Base default is 1.5s; the candle spec calls for a 1s stationary refill.
+        private void Reset() => interactionDuration = 1f;
+
         /// <inheritdoc/>
         public override bool CanInteract(InteractionContext ctx)
         {

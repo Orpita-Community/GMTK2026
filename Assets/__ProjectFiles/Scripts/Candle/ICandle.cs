@@ -19,5 +19,8 @@ namespace Orpita.Candle
 
         /// <summary>Add seconds, clamped to [0, <see cref="MaxSeconds"/>].</summary>
         void AddSeconds(float seconds);
+
+        /// <summary>Spend seconds instantly (e.g. Boost Flame), clamped to [0, <see cref="MaxSeconds"/>].</summary>
+        void ConsumeTime(float seconds);
     }
 }

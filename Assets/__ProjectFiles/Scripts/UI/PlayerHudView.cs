@@ -40,7 +40,10 @@ namespace Orpita.UI
             }
 
             if (candle != null)
-                candle.SecondsRemainingRx.Subscribe(OnCandleChanged).AddTo(_subs);
+            {
+                candle.SecondsRemainingRx.Subscribe(OnCandleTextChanged).AddTo(_subs);
+                candle.NormalizedRx.Subscribe(OnCandleFillChanged).AddTo(_subs);
+            }
         }
 
         private void OnDisable()
@@ -59,14 +62,17 @@ namespace Orpita.UI
         private void OnFragmentsChanged(int total)
         {
             if (fragmentsText != null)
-                fragmentsText.text = $"Map Fragments: {total}";
+                fragmentsText.text = $"Map Fragments: {total} / 4";
         }
 
-        private void OnCandleChanged(float seconds)
+        private void OnCandleFillChanged(float normalized)
         {
-            if (candleFill != null && candle != null && candle.MaxSeconds > 0f)
-                candleFill.fillAmount = Mathf.Clamp01(seconds / candle.MaxSeconds);
+            if (candleFill != null)
+                candleFill.fillAmount = normalized;
+        }
 
+        private void OnCandleTextChanged(float seconds)
+        {
             if (candleText == null)
                 return;
 

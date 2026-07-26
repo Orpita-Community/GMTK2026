@@ -18,7 +18,14 @@ namespace Orpita.Interaction
         [SerializeField] private KeyDefinition requiredKey;
         [SerializeField] private Sprite unlockedSprite;
 
+        [Tooltip("Tint applied once opened, so the chest reads as spent even without dedicated open-state art.")]
+        [SerializeField] private Color openedTint = new Color(0.55f, 0.55f, 0.5f, 1f);
+
+        [Tooltip("Open-animation pop duration in seconds.")]
+        [SerializeField] private float openPopSeconds = 0.3f;
+
         private bool _opened;
+        private MotionHandle _openHandle;
 
         /// <summary>True once this chest has been successfully unlocked.</summary>
         public bool IsOpened => _opened;
@@ -28,6 +35,9 @@ namespace Orpita.Interaction
 
         /// <summary>Raised once when the chest is unlocked.</summary>
         public event Action Opened;
+
+        // Base default is 1.5s; the chest spec calls for a 1s stationary unlock.
+        private void Reset() => interactionDuration = 1f;
 
         /// <inheritdoc/>
         public override bool CanInteract(InteractionContext ctx) =>
@@ -57,7 +67,24 @@ namespace Orpita.Interaction
             if (highlightTarget == null)
                 return;
 
-            //TODO: Add Animation
+            if (unlockedSprite != null)
+                highlightTarget.sprite = unlockedSprite;
+
+            highlightTarget.color = openedTint;
+
+            // Pop back to the base scale InteractableBase.SetHighlighted assumes
+            // (Vector3.one), so the chest doesn't stay frozen at its highlighted
+            // scale once SetHighlighted starts no-op'ing after _opened is set.
+            _openHandle.TryCancel();
+            _openHandle = LMotion.Create(highlightTarget.transform.localScale, Vector3.one, openPopSeconds)
+                .WithEase(Ease.OutQuad)
+                .BindToLocalScale(highlightTarget.transform);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _openHandle.TryCancel();
         }
     }
 }

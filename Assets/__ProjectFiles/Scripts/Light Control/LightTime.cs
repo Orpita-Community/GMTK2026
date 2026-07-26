@@ -13,17 +13,14 @@ namespace Orpita.Lighting
     {
         private const float TickIntervalSeconds = 1f;
 
-        [Tooltip("The Spot or Point light carried by the player.")]
+        [Tooltip("The spot light carried by the player.")]
         [SerializeField] private Light2D playerLight;
 
-        [Tooltip("Amount removed from Inner Radius each second.")]
-        [SerializeField, Min(0.001f)] private float innerRadiusDecreasePerSecond = 0.1f;
+        [Tooltip("Amount removed from the light falloff and, after the threshold, intensity each second.")]
+        [SerializeField, Min(0.001f)] private float decreasePerSecond = 0.01f;
 
-        [Tooltip("Inner Radius at which intensity starts draining.")]
-        [SerializeField, Min(0f)] private float intensityDrainThreshold = 2.5f;
-
-        [Tooltip("Amount removed from intensity each second after Inner Radius reaches the threshold.")]
-        [SerializeField, Min(0.001f)] private float intensityDecreasePerSecond = 0.05f;
+        [Tooltip("Intensity begins draining when falloff reaches this value.")]
+        [SerializeField, Range(0f, 1f)] private float intensityDrainThreshold = 0.5f;
 
         private CancellationTokenSource _lifetimeCancellation;
 
@@ -58,7 +55,7 @@ namespace Orpita.Lighting
         {
             try
             {
-                while (playerLight.pointLightInnerRadius > 0f || playerLight.intensity > 0f)
+                while (playerLight.pointLightInnerRadius > 0f)
                 {
                     await Awaitable.WaitForSecondsAsync(TickIntervalSeconds, cancellationToken);
                     DrainOneTick();
@@ -72,12 +69,10 @@ namespace Orpita.Lighting
 
         private void DrainOneTick()
         {
-            playerLight.pointLightInnerRadius = Mathf.Max(
-                0f,
-                playerLight.pointLightInnerRadius - innerRadiusDecreasePerSecond);
+            playerLight.falloffIntensity = Mathf.Max(0f, playerLight.falloffIntensity - decreasePerSecond);
 
-            if (playerLight.pointLightInnerRadius <= intensityDrainThreshold)
-                playerLight.intensity = Mathf.Max(0f, playerLight.intensity - intensityDecreasePerSecond);
+            if (playerLight.falloffIntensity <= intensityDrainThreshold)
+                playerLight.intensity = Mathf.Max(0f, playerLight.intensity - decreasePerSecond);
         }
     }
 }
