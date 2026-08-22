@@ -6,7 +6,6 @@ using Orpita.Inventory;
 using Orpita.Player;
 using Orpita.Audio;
 
-
 namespace Orpita.Core
 {
     [RequireComponent(typeof(SpriteRenderer))]
@@ -23,6 +22,9 @@ namespace Orpita.Core
         [Header("Visuals")]
         [Tooltip("The sprite to display when the treasure is opened.")]
         [SerializeField] private Sprite openSprite;
+        
+        [Tooltip("The particle system to play when the chest is unlocked.")]
+        [SerializeField] private ParticleSystem burstParticles; // <-- ADDED THIS
 
         [Header("Spawning Config")]
         [Tooltip("The physical Diamond prefab to spawn.")]
@@ -48,7 +50,6 @@ namespace Orpita.Core
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             
-            // Ensure the warning is invisible at the start
             if (warningCanvasGroup != null)
             {
                 warningCanvasGroup.alpha = 0f;
@@ -58,26 +59,28 @@ namespace Orpita.Core
 
         public override bool CanInteract(InteractionContext ctx)
         {
-            // The 'E' prompt is strictly blocked and invisible until they have all fragments.
             return !_opened && ctx.Inventory.MapFragmentCount >= requiredFragments;
         }
 
         public override void OnInteract(InteractionContext ctx)
         {
-            // Safety double-lock
             if (ctx.Inventory.MapFragmentCount < requiredFragments) return;
 
             _opened = true;
 
             AudioManager.Instance.PlaySFX("FinalTreasure");
 
-            // 1. Swap the sprite to the open state
+            // Play the radiant burst effect!
+            if (burstParticles != null)
+            {
+                burstParticles.Play(); // <-- ADDED THIS
+            }
+
             if (openSprite != null)
             {
                 _spriteRenderer.sprite = openSprite;
             }
 
-            // 2. Spawn the diamond and animate it popping out
             if (diamondPrefab != null)
             {
                 GameObject spawnedDiamond = Instantiate(diamondPrefab, transform.position + spawnOffset, Quaternion.identity);
@@ -93,17 +96,14 @@ namespace Orpita.Core
             base.SetHighlighted(highlighted);
         }
 
-        // --- NEW: Proximity Detection for the Warning Text ---
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_opened || playerInventory == null) return;
 
-            // Verify it is the player touching it by looking for their motor[cite: 4]
             PlayerMotor player = other.GetComponentInParent<PlayerMotor>();
             
             if (player != null)
             {
-                // If they walked up but don't have enough fragments, flash the warning
                 if (playerInventory.MapFragmentCount < requiredFragments)
                 {
                     if (warningCanvasGroup != null)
@@ -119,7 +119,6 @@ namespace Orpita.Core
         {
             warningCanvasGroup.gameObject.SetActive(true);
 
-            // 1. Fade In
             float timer = 0f;
             while (timer < fadeDuration)
             {
@@ -129,10 +128,8 @@ namespace Orpita.Core
             }
             warningCanvasGroup.alpha = 1f;
 
-            // 2. Hold on screen
             yield return new WaitForSeconds(warningHoldTime);
 
-            // 3. Fade Out
             timer = 0f;
             while (timer < fadeDuration)
             {
@@ -141,14 +138,10 @@ namespace Orpita.Core
                 yield return null;
             }
             
-            // Cleanup
             warningCanvasGroup.alpha = 0f;
             warningCanvasGroup.gameObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Animates the diamond jumping out of the chest and landing on the floor.
-        /// </summary>
         private IEnumerator AnimatePopOut(Transform itemTransform)
         {
             Vector3 startPos = itemTransform.position;

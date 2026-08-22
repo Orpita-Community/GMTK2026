@@ -622,16 +622,16 @@ MonoBehaviour:
   sequence:
   - focusPoint: {fileID: 109468023}
     cameraZoom: 3.5
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: 46b2f0ea6b985b342ace9b428be7a1e4, type: 3}
   - focusPoint: {fileID: 1331443778}
     cameraZoom: 3.5
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: 18a7af8088df3b64194b20aeab9c7508, type: 3}
   - focusPoint: {fileID: 1311014146}
     cameraZoom: 4
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: 6bdf942c32fec9c4a898990780766a1a, type: 3}
   - focusPoint: {fileID: 619261660}
     cameraZoom: 4
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: 350694af949b7d84c8773aa8c1fd54a7, type: 3}
   - focusPoint: {fileID: 941337454}
     cameraZoom: 6
     panelAudio: {fileID: 0}
@@ -640,16 +640,16 @@ MonoBehaviour:
     panelAudio: {fileID: 0}
   - focusPoint: {fileID: 1214066351}
     cameraZoom: 3.5
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: 14e8b88bfe1ba1042b734352c6a4b9a5, type: 3}
   - focusPoint: {fileID: 1610811643}
     cameraZoom: 7.5
-    panelAudio: {fileID: 0}
+    panelAudio: {fileID: 8300000, guid: ee886fcb6c254934ca444e52925f1ae2, type: 3}
   defaultSmoothTime: 0.3
   startFadeDuration: 2
-  finalBlackHoldDuration: 2.5
+  finalBlackHoldDuration: 1.5
   fadeOverlay: {fileID: 1504177078}
   bgmSource: {fileID: 519420036}
-  sfxSource: {fileID: 0}
+  sfxSource: {fileID: 519420035}
   advanceAction: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   nextSceneName: Mansion Layout
 --- !u!82 &519420035

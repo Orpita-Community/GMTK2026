@@ -4,7 +4,6 @@ using UnityEngine;
 using Orpita.Items;
 using Orpita.Audio;
 
-
 namespace Orpita.Interaction
 {
     [RequireComponent(typeof(SpriteRenderer))]
@@ -25,7 +24,7 @@ namespace Orpita.Interaction
         [Tooltip("Sprites change in order of interactions. Search 1 = Sprite 0, Search 2 = Sprite 1, etc.")]
         [SerializeField] private Sprite[] searchedSprites;
 
-        private int _interactionCount = 0; // Tracks how many times it has been searched
+        private int _interactionCount = 0; 
         private SpriteRenderer _spriteRenderer;
 
         public event Action<LootReward> Searched;
@@ -33,14 +32,17 @@ namespace Orpita.Interaction
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            UpdatePromptText(); // Set the initial text
         }
 
-        // Only allow interaction if we haven't hit the max limit
+        // Only allow interaction if we haven't hit the max limit[cite: 10]
         public override bool CanInteract(InteractionContext ctx) => _interactionCount < maxInteractions;
 
         public override void OnInteract(InteractionContext ctx)
         {
-            LootReward reward = lootTable != null ? lootTable.Roll() : LootReward.Nothing;
+            if (_interactionCount >= maxInteractions) return; // Safety check
+
+            LootReward reward = lootTable != null ? lootTable.GetRewardForInteraction(_interactionCount) : LootReward.Nothing;
             AudioManager.Instance.PlaySFX("DrawerOpen");
 
             switch (reward.Kind)
@@ -70,17 +72,55 @@ namespace Orpita.Interaction
             // Increase the search counter
             _interactionCount++;
 
-            // --- SPRITE SWAP LOGIC (Sequential) ---
+            // Sprite Swap Logic
             if (searchedSprites != null && searchedSprites.Length > 0)
             {
-                // We subtract 1 from interactionCount so the 1st search maps to index 0.
-                // Mathf.Clamp acts as a safety net: if maxInteractions is higher than your sprite list, 
-                // it just stays on the last available sprite instead of throwing an error.
                 int spriteIndex = Mathf.Clamp(_interactionCount - 1, 0, searchedSprites.Length - 1);
                 _spriteRenderer.sprite = searchedSprites[spriteIndex];
             }
 
             Searched?.Invoke(reward);
+            
+            Collider2D col = GetComponent<Collider2D>();
+
+            // --- THE DISAPPEARING ACT ---
+            if (_interactionCount >= maxInteractions)
+            {
+                // If we are out of interactions, disable the collider!
+                // This instantly removes the object from the player's detector, hiding the UI text entirely.
+                if (col != null) col.enabled = false;
+                
+                // Disable the script so it permanently stops highlighting as well
+                this.enabled = false;
+            }
+            else
+            {
+                // If there are more interactions left, update the text to "Interact again"
+                UpdatePromptText();
+
+                // Hack to instantly refresh the detector's UI while standing still.
+                if (col != null)
+                {
+                    col.enabled = false;
+                    col.enabled = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Updates the underlying inherited 'prompt' string based on our progress.[cite: 10]
+        /// </summary>
+        private void UpdatePromptText()
+        {
+            if (_interactionCount == 0)
+            {
+                prompt = "Interact";
+            }
+            else 
+            {
+                // We no longer need the "Already opened" text since the prompt vanishes completely!
+                prompt = "Interact again"; 
+            }
         }
 
         private IEnumerator AnimatePopOut(Transform itemTransform)
@@ -103,7 +143,6 @@ namespace Orpita.Interaction
                 float progress = timer / duration;
 
                 float currentX = Mathf.Lerp(startPos.x, endPos.x, progress);
-
                 float jumpHeight = 1.5f;
                 float arc = 4f * jumpHeight * (progress - progress * progress);
                 float currentY = Mathf.Lerp(startPos.y, endPos.y, progress) + arc;

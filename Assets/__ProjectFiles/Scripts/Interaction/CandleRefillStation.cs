@@ -14,15 +14,17 @@ namespace Orpita.Interaction
         [Tooltip("The light object to disable while on cooldown or lockdown.")]
         [SerializeField] private GameObject stationLight;
 
+        [Tooltip("The particle system to disable while on cooldown.")]
+        [SerializeField] private ParticleSystem stationParticles; // <-- ADDED THIS
+
         private float _cooldownTimer;
         private bool _isOnCooldown;
-        private bool _isShutDown; // Tracks if lockdown mode is active
+        private bool _isShutDown; 
 
         public event Action Refilled;
 
         private void Update()
         {
-            // If the station was permanently shut down by the lockdown, stop running timers
             if (_isShutDown) return;
 
             if (_isOnCooldown)
@@ -33,13 +35,15 @@ namespace Orpita.Interaction
                     _isOnCooldown = false;
                     
                     if (stationLight != null) stationLight.SetActive(true);
+                    
+                    // Turn the particles back on
+                    if (stationParticles != null) stationParticles.Play(); // <-- ADDED THIS
                 }
             }
         }
 
         public override bool CanInteract(InteractionContext ctx)
         {
-            // Block interaction if cooling down OR if the lockdown has triggered
             if (_isOnCooldown || _isShutDown) return false;
 
             ICandle candle = ctx.Candle;
@@ -48,28 +52,39 @@ namespace Orpita.Interaction
 
         public override void OnInteract(InteractionContext ctx)
         {
-            AudioManager.Instance.PlaySFX("CandleRefill");
             ctx.Candle?.Refill();
             Refilled?.Invoke();
+
+            // If timer is half or above, fade out the ghost SFX
+            if (ctx.Candle != null && ctx.Candle.SecondsRemaining >= (ctx.Candle.MaxSeconds / 2f))
+            {
+                AudioManager.Instance.FadeOutGhostSFX(1f);
+            }
+
+            // Play the refill sound
+            AudioManager.Instance.PlaySFX("CandleRefill");
 
             _isOnCooldown = true;
             _cooldownTimer = cooldownDuration;
             
             if (stationLight != null) stationLight.SetActive(false);
+            
+            // Stop the particles from emitting
+            if (stationParticles != null) stationParticles.Stop(); // <-- ADDED THIS
         }
 
-        // --- NEW METHOD CALLED BY THE PROGRESSION MANAGER ---
         public void ShutdownStation()
         {
             _isShutDown = true;
             this.enabled = false;
             
-            // Turn off the interaction collider
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.enabled = false;
             
-            // Turn off the light permanently
             if (stationLight != null) stationLight.SetActive(false);
+            
+            // Ensure particles stop if the station is locked down
+            if (stationParticles != null) stationParticles.Stop(); // <-- ADDED THIS
         }
     }
 }

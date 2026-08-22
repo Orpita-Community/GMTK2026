@@ -34,13 +34,6 @@ namespace Orpita.Environment
                 return;
             }
 
-            // 2. THE DANGER TRIGGER (Low Fuel)
-            if (currentSeconds <= dangerThreshold && currentSeconds > 0f && !_isPlayingDangerSound)
-            {
-                _isPlayingDangerSound = true;
-                AudioManager.Instance.PlaySFX("GhostDanger");
-            }
-            
             // 3. THE RESET (If they refill the candle)
             else if (currentSeconds > dangerThreshold && _isPlayingDangerSound)
             {

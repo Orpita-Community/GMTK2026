@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Orpita.Items
 {
-    /// <summary>Kinds of reward a loot roll can yield.</summary>
+    /// <summary>Kinds of reward a loot yield can have.</summary>
     public enum LootKind
     {
         Nothing,
@@ -12,7 +12,7 @@ namespace Orpita.Items
     }
 
     /// <summary>
-    /// Immutable result of a loot roll. Use the static factories instead of the
+    /// Immutable result of a loot yield. Use the static factories instead of the
     /// constructor so callers cannot assemble invalid combinations.
     /// </summary>
     public readonly struct LootReward
@@ -43,13 +43,11 @@ namespace Orpita.Items
         public static LootReward OfCandle(float seconds) => new LootReward(LootKind.Candle, null, seconds);
     }
 
-    /// <summary>One weighted option in a <see cref="LootTable"/>.</summary>
+    /// <summary>One sequential option in a <see cref="LootTable"/>.</summary>
     [Serializable]
     public struct LootEntry
     {
         public LootKind kind;
-
-        [Min(0f)] public float weight;
 
         /// <summary>Key awarded. Used only when <see cref="kind"/> == <see cref="LootKind.Key"/>.</summary>
         public KeyDefinition key;
@@ -59,10 +57,7 @@ namespace Orpita.Items
     }
 
     /// <summary>
-    /// Weighted random loot table. Rolls a single entry proportional to its
-    /// weight (via <see cref="Random.value"/>) and converts it to the matching
-    /// <see cref="LootReward"/>. An empty table, or one whose weights all sum to
-    /// zero, yields <see cref="LootReward.Nothing"/>.
+    /// Sequential loot table. Yields a specific entry based on the interaction index.
     /// </summary>
     [CreateAssetMenu(menuName = "Orpita/Loot Table", fileName = "LootTable")]
     public sealed class LootTable : ScriptableObject
@@ -70,48 +65,18 @@ namespace Orpita.Items
         [SerializeField] private LootEntry[] entries;
 
         /// <summary>
-        /// Roll one entry proportional to its weight. Returns
-        /// <see cref="LootReward.Nothing"/> if the table is empty or every weight
-        /// is zero/negative.
+        /// Retrieves the specific entry matching the interaction index.
         /// </summary>
-        public LootReward Roll()
+        public LootReward GetRewardForInteraction(int interactionIndex)
         {
             if (entries == null || entries.Length == 0)
                 return LootReward.Nothing;
 
-            float total = 0f;
-            for (int i = 0; i < entries.Length; i++)
-            {
-                float w = entries[i].weight;
-                if (w > 0f)
-                    total += w;
-            }
-
-            if (total <= 0f)
+            // Ensure we don't go out of bounds if the player can search more times than there are entries
+            if (interactionIndex >= entries.Length)
                 return LootReward.Nothing;
 
-            float roll = UnityEngine.Random.value * total;
-            float accumulated = 0f;
-            for (int i = 0; i < entries.Length; i++)
-            {
-                float w = entries[i].weight;
-                if (w <= 0f)
-                    continue;
-
-                accumulated += w;
-                if (roll <= accumulated)
-                    return ToReward(entries[i]);
-            }
-
-            // Floating-point tail guard: if rounding kept us above the last entry,
-            // fall back to the last positive entry.
-            for (int i = entries.Length - 1; i >= 0; i--)
-            {
-                if (entries[i].weight > 0f)
-                    return ToReward(entries[i]);
-            }
-
-            return LootReward.Nothing;
+            return ToReward(entries[interactionIndex]);
         }
 
         private static LootReward ToReward(LootEntry entry)

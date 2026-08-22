@@ -2,7 +2,7 @@ using System;
 using R3;
 using UnityEngine;
 using Orpita.Candle;
-using Orpita.Audio; // REQUIRED FOR AUDIO
+using Orpita.Audio;
 
 namespace Orpita.Environment
 {
@@ -15,7 +15,7 @@ namespace Orpita.Environment
 
         private SpriteRenderer _spriteRenderer;
         private IDisposable _subscription;
-        private bool _isBleeding; // Tracks state to play sound only once
+        private bool _isBleeding; 
 
         private void Awake() => _spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -34,20 +34,21 @@ namespace Orpita.Environment
         {
             float halfFuel = candle.MaxSeconds / 2f;
             
-            // If fuel is low and it hasn't started bleeding yet
             if (currentSeconds <= halfFuel && !_isBleeding)
             {
                 _isBleeding = true;
                 _spriteRenderer.sprite = bleedSprite;
                 
-                // Play the creepy sound!
-                AudioManager.Instance.PlaySFX("PortraitBleed"); 
+                // Play the creepy sound on the dedicated ghost channel
+                AudioManager.Instance.PlayGhostSFX("PortraitBleed"); 
             }
-            // If they refill the candle, reset the portrait
             else if (currentSeconds > halfFuel && _isBleeding)
             {
                 _isBleeding = false;
                 _spriteRenderer.sprite = normalSprite;
+                
+                // Fade out the ghost SFX smoothly over 1.5 seconds
+                AudioManager.Instance.FadeOutGhostSFX(1.5f);
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Orpita.Interaction;
+using Orpita.Audio; // <-- ADDED THIS
 
 namespace Orpita.Core
 {
@@ -27,6 +28,15 @@ namespace Orpita.Core
         public override void OnInteract(InteractionContext ctx)
         {
             _isEscaping = true;
+
+            // Play the escape/door sound effect
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("EscapeDoor"); // <-- MAKE SURE TO MATCH YOUR SFX NAME
+                
+                // Optional: Stop the background music when they escape
+                AudioManager.Instance.StopMusic(); 
+            }
             
             // 1. FREEZE TIME IMMEDIATELY
             Time.timeScale = 0f;
@@ -51,13 +61,13 @@ namespace Orpita.Core
                 fadeOverlay.alpha = 1f;
             }
 
-            // 3. Activate the Win UI once the screen is fully black[cite: 10]
+            // 3. Activate the Win UI once the screen is fully black
             if (winUI != null)
             {
                 winUI.SetActive(true);
             }
 
-            // 4. Deactivate the door so it can't be interacted with again[cite: 10]
+            // 4. Deactivate the door so it can't be interacted with again
             gameObject.SetActive(false);
         }
 
