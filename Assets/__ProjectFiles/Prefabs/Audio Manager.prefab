@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7120563105515810043}
   - component: {fileID: 5315955459145887215}
   - component: {fileID: 6348425693841079812}
+  - component: {fileID: 7370558807956479840}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Orpita.Audio.AudioManager
   musicSource: {fileID: 5315955459145887215}
   sfxSource: {fileID: 6348425693841079812}
+  ghostSource: {fileID: 7370558807956479840}
   sfxLibrary:
   - name: MapPickup
     clip: {fileID: 8300000, guid: 1f98a7c9fd64af84398ee70e667a45ca, type: 3}
@@ -71,7 +73,7 @@ MonoBehaviour:
     loop: 0
   - name: CandleRefill
     clip: {fileID: 8300000, guid: 34c048dc43ad43f499f5947a654c2890, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 0
   - name: CandlePickup
@@ -91,7 +93,7 @@ MonoBehaviour:
     loop: 0
   - name: PortraitBleed
     clip: {fileID: 8300000, guid: 9f54e3476dbdb01419b09edc9e2d4caa, type: 3}
-    volume: 0.25
+    volume: 1
     pitch: 1
     loop: 0
   - name: KeyPickup
@@ -99,15 +101,25 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+  - name: menu cursor move
+    clip: {fileID: 8300000, guid: 21dcf3ecb2196c64f97d1ee1c48cd9c9, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+  - name: menu cursor select
+    clip: {fileID: 8300000, guid: 6b3190a67c00c184dabacf126bc117b2, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
   musicLibrary:
   - name: BGM_Normal
     clip: {fileID: 8300000, guid: f4ba42d4531a1a5419779a4bafcd5d60, type: 3}
-    volume: 0.5
+    volume: 0.35
     pitch: 1
     loop: 1
   - name: BGM_Lockdown
     clip: {fileID: 8300000, guid: b879d31f27997894581619ea36711da2, type: 3}
-    volume: 0.5
+    volume: 0.35
     pitch: 1
     loop: 1
 --- !u!82 &5315955459145887215
@@ -208,6 +220,103 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!82 &6348425693841079812
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575199764133930263}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &7370558807956479840
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
